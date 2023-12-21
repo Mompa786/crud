@@ -2,7 +2,7 @@ const express = require("express")
 const hbs = require("hbs")
 const path = require("path")
 const bodyParser = require("body-parser")
-require("./db.Connect")
+require("./dbConnect")
 
 const Employee = require("./Models/Employee")
 
@@ -39,8 +39,8 @@ app.post("/add", encoder, async (req, res) => {
             res.render("add", { show: true, message: error.errors.email.message, data: data })
         else if (error.errors.phone)
             res.render("add", { show: true, message: error.errors.phone.message, data: data })
-        else if (error.errors.dsg)
-            res.render("add", { show: true, message: error.errors.dsg.message, data: data })
+        else if (error.errors.project)
+            res.render("add", { show: true, message: error.errors.project.message, data: data })
         else if (error.errors.salary)
             res.render("add", { show: true, message: error.errors.salary.message, data: data })
         else
@@ -78,10 +78,7 @@ app.post("/update/:_id", encoder, async (req, res) => {
             data.name = req.body.name,
                 data.email = req.body.email,
                 data.phone = req.body.phone,
-                data.dsg = req.body.dsg,
-                data.salary = req.body.salary,
-                data.city = req.body.city,
-                data.state = req.body.state
+                
             await data.save()
         }
         res.redirect("/")
@@ -98,7 +95,7 @@ app.get("/search",async(req,res)=>{
             {name:{$regex:search,$options:"i"}},
             {email:{$regex:search,$options:"i"}},
             {phone:{$regex:search,$options:"i"}},
-            {dsg:{$regex:search,$options:"i"}},
+            {project:{$regex:search,$options:"i"}},
             {city:{$regex:search,$options:"i"}},
             {state:{$regex:search,$options:"i"}}
         ]}).sort({_id:-1})

@@ -6,7 +6,7 @@ const mongoose = require("mongoose")
 
 async function getConnect(){
     try{
-        mongoose.connect("mongodb+srv://khandanish30599:khan@1234@cluster0.xyeo9sf.mongodb.net/CRUD Application")
+        mongoose.connect("mongodb+srv://khandanish:khan1234@cluster0.vdwsofb.mongodb.net/crud")
         console.log("DataBase is Connected!!!")
     }
     catch(error){

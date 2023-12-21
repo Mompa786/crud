@@ -13,20 +13,11 @@ const EmployeeSchema = new mongoose.Schema({
         type:String,
         required:[true,"Phone Number Must Required"]
     },
-    dsg:{
+    project :{
         type:String,
-        required:[true,"Designation Must Required"]
-    },
-    salary:{
-        type:Number,
-        required:[true,"Salary Must Required"]
-    },
-    city:{
-        type:String
-    },
-    state:{
-        type:String,
-    }  
+        required:[true,"Project must be Required"]
+    }
+   
 })
 const Employee = new mongoose.model("Employee",EmployeeSchema)
 module.exports = Employee
