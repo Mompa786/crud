@@ -1,0 +1,41 @@
+{{>header}}
+<title>CRUD | Add</title>
+{{>navbar}}
+
+<div class="container-fluid my-2">
+    <div class="w-100">
+        <div class="w-75 m-auto center-div">
+            <h5 class="background p-2 text-center">Add Employee Record</h5>
+            {{#if show}}
+            <div class="alert alert-danger text-center alert-dismissible fade show" role="alert">
+                {{message}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {{/if}}
+            <form action="/add/" method="post">
+                <div class="mb-3">
+                    <label>Name</label>
+                    <input type="text" name="name" placeholder="Enter Full Name : " class="form-control" value="{{data.name}}">
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label>Email</label>
+                        <input type="email" name="email" placeholder="Enter Email Address : " class="form-control"  value="{{data.email}}">
+                    </div>
+                    <div class="col-md-6">
+                        <label>Phone </label>
+                        <input type="text" name="phone" placeholder="Enter Phone Number : " class="form-control"  value="{{data.phone}}">
+                    </div>
+                </div>
+                </div>
+
+
+                <div class="mb-3">
+                    <button type="submit" class="background border-0 w-100 rounded p-1">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{{>footer}}
